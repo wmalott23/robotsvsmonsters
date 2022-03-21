@@ -7,7 +7,9 @@ class Battlefield:
         self.herd = Herd()
 
     def run_game(self):
-        pass
+        self.display_welcome()
+        self.battle()
+        self.display_winners()
 
     def display_welcome(self):
         print("Welcome to the big battle of dinosaurs and robots!")
@@ -17,8 +19,6 @@ class Battlefield:
         robo_total = self.fleet.robots[0].health + self.fleet.robots[1].health + self.fleet.robots[2].health
         counter = 1
         while dino_total > 0 and robo_total > 0:
-            dino_total = self.herd.dinosaurs[0].health + self.herd.dinosaurs[1].health + self.herd.dinosaurs[2].health
-            robo_total = self.fleet.robots[0].health + self.fleet.robots[1].health + self.fleet.robots[2].health
             print(robo_total)
             if counter == 2:
                 self.show_dino_opponent_options()
@@ -33,7 +33,9 @@ class Battlefield:
                 for each in self.herd.dinosaurs:
                     if each.name == dino_choice:
                         self.dino_turn(each)
-                counter = 2
+                        counter = 2
+            dino_total = self.herd.dinosaurs[0].health + self.herd.dinosaurs[1].health + self.herd.dinosaurs[2].health
+            robo_total = self.fleet.robots[0].health + self.fleet.robots[1].health + self.fleet.robots[2].health
         print("Battle Over!")
         
 
@@ -55,7 +57,7 @@ class Battlefield:
         att_choice = input("Which dino would you like to attack?")
         for each in self.herd.dinosaurs:
             if each.name == att_choice:
-                each.health -= robot.attack_power
+                each.health -= robot.weapon.attack_power
                 robot.attack(att_choice)
                 if each.health <= 0:
                     each.health = 0
@@ -75,8 +77,9 @@ class Battlefield:
                 print(each.name)
 
     def display_winners(self):
-        pass
-
-herd = Battlefield()
-
-herd.battle()
+        dino_total = self.herd.dinosaurs[0].health + self.herd.dinosaurs[1].health + self.herd.dinosaurs[2].health
+        robo_total = self.fleet.robots[0].health + self.fleet.robots[1].health + self.fleet.robots[2].health
+        if dino_total > 0:
+            print("Dinos win!")
+        if robo_total > 0:
+            print("Robots win!")

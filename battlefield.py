@@ -19,7 +19,6 @@ class Battlefield:
         robo_total = self.fleet.robots[0].health + self.fleet.robots[1].health + self.fleet.robots[2].health
         counter = 1
         while dino_total > 0 and robo_total > 0:
-            print(robo_total)
             if counter == 2:
                 self.show_dino_opponent_options()
                 robo_choice = input("Which robot would like to attack with?")
@@ -45,7 +44,9 @@ class Battlefield:
         for each in self.fleet.robots:
             if each.name == att_choice:
                 each.health -= dinosaur.attack_power
+                dinosaur.energy -= 10
                 dinosaur.attack(att_choice)
+                print(f'{dinosaur.name} now has {dinosaur.energy} energy')
                 if each.health <= 0:
                     each.health = 0
                     print(f'{each.name} now has 0 health left! {each.name} is out of the fight!')
@@ -58,6 +59,8 @@ class Battlefield:
         for each in self.herd.dinosaurs:
             if each.name == att_choice:
                 each.health -= robot.weapon.attack_power
+                robot.power -= 10
+                print(f'{robot.name} now has {robot.power} power')
                 robot.attack(att_choice)
                 if each.health <= 0:
                     each.health = 0

@@ -3,6 +3,7 @@ from weapon import Weapon
 class Robot:
     def __init__(self, name):
         self.name = name
+        self.power = 100
         self.health = 40
         self.weapon = Weapon("Error", 404)
         self.weapon.list = [Weapon("Space Sword", 40), Weapon("Space Laser", 30), Weapon("Space Punch", 35)]
@@ -19,7 +20,3 @@ class Robot:
         for each in self.weapon.list:
             if each.name == wep_choice:
                 self.weapon = each
-
-robert = Robot("robert")
-
-robert.attack("godzilla")

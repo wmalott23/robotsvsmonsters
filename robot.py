@@ -8,4 +8,4 @@ class Robot:
 
 
     def attack(self, dinosaur):
-        print(f'{self.name} attacks {dinosaur} with their {Weapon.name} for {Weapon.attack_power} points of damage!')
+        print(f'{self.name} attacks {dinosaur} with their {self.weapon.name} for {self.weapon.attack_power} points of damage!')

@@ -4,5 +4,6 @@ class Robot:
         self.health = None
         self.weapon = None
 
+
     def attack(self, dinosaur):
         pass

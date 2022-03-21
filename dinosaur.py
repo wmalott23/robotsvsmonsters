@@ -5,4 +5,4 @@ class Dinosaur:
         self.health = 50
 
     def attack(self, robot):
-        print(f'{self.name} attacks {robot} with a big stomp and does {self.attack_power} points of damage!')
+        print(f'{self.name} attacks {robot.name} with a big stomp and does {self.attack_power} points of damage!')

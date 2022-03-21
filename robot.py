@@ -1,6 +1,6 @@
 class Robot:
     def __init__(self, name):
-        self.name = None
+        self.name = name
         self.health = None
         self.weapon = None
 

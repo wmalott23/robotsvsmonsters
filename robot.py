@@ -14,9 +14,12 @@ class Robot:
         print(f'{self.name} attacks {dinosaur} with their {self.weapon.name} for {self.weapon.attack_power} points of damage!')
     
     def choose_weapon(self):
-        for each in self.weapon.list:
-            print(each.name)
-        wep_choice = input("What weapon would you like to use?")
-        for each in self.weapon.list:
-            if each.name == wep_choice:
-                self.weapon = each
+        choice = 0
+        while choice != 1:
+            for each in self.weapon.list:
+                print(each.name)
+            wep_choice = input("What weapon would you like to use?")
+            for each in self.weapon.list:
+                if each.name == wep_choice:
+                    self.weapon = each
+                    choice = 1

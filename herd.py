@@ -10,7 +10,7 @@ class Herd:
         dino_one_att = input("How strong would you like them to be?")
         dino_two_name = input("What name would you like to give your second dinosaur?")
         dino_two_att = input("How strong would you like them to be?")
-        dino_three_name = input("What name would you like to give dino three?")
+        dino_three_name = input("Type in Lil' Foot")
         dino_three_att = input("Type in 100")
         self.dinosaurs.append(Dinosaur(dino_one_name, dino_one_att))
         self.dinosaurs.append(Dinosaur(dino_two_name, dino_two_att))
